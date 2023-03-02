@@ -26,6 +26,7 @@ console.log(user)
         <Route exact path = '/' element = {<Home user = {user} />}/>
         <Route exact path = '/tasks' element = {<Task />}/>
         <Route exact path = '/login' element = {<Login setUser = {setUser}/>} />
+        <Route exact path = '/newtasks' element = {<NewTask />}/> 
       </Routes>
     </div>
   );
