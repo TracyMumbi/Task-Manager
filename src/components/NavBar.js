@@ -27,6 +27,7 @@ function NavBar() {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/tasks">Tasks</NavLink>
         <NavLink to="/newtasks">New Tasks</NavLink>
+        <NavLink to="/taskdetails" >Task Details</NavLink>
     </div>
   )
 }

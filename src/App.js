@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import { useEffect, useState } from 'react';
 import Login from './components/Login';
 import NewTask from './components/NewTask';
+import TaskDetails from './components/TaskDetails';
 
 
 function App() {
@@ -27,6 +28,7 @@ console.log(user)
         <Route exact path = '/tasks' element = {<Task />}/>
         <Route exact path = '/login' element = {<Login setUser = {setUser}/>} />
         <Route exact path = '/newtasks' element = {<NewTask />}/> 
+        <Route exact path = '/taskdetails' element = {<TaskDetails />} />
       </Routes>
     </div>
   );
