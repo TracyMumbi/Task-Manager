@@ -4,6 +4,7 @@ import Home from './views/Home';
 import NavBar from './components/NavBar';
 import { useEffect, useState } from 'react';
 import Login from './components/Login';
+import NewTask from './components/NewTask';
 
 
 function App() {
