@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import NavBar from '../components/NavBar'
 import Task from '../components/Task'
+import TaskDetails from '../components/TaskDetails'
 
 
 function Home({user}) {
@@ -19,16 +21,21 @@ useEffect(() =>{
     setTasks(tasks)
     setAllTasks(
     tasks.map((task) => (
-      <div>
-        <h2>{task.name}</h2>
-        <p>{task.description}</p>
-      </div>
+        <div class="card" style={{width: "18rem"}}>
+          <div class="card-body" >
+            <h5 class="card-title">{task.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{task.status}</h6>
+            <p class="card-text">{task.description}</p>
+            <a href={`/taskdetails}`} class="card-link">more details</a>
+          </div>
+        </div>
     )))
   })
 }, [])
   return (
     <div>
       {allTasks}
+      <TaskDetails user_id = {user_id}/>
     </div>
   )
 }

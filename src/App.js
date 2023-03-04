@@ -22,13 +22,12 @@ useEffect(() => {
 console.log(user)
   return (
     <div>
-      <NavBar />
+      <NavBar setUser={setUser} />
       <Routes>
         <Route exact path = '/' element = {<Home user = {user} />}/>
-        <Route exact path = '/tasks' element = {<Task />}/>
+        <Route exact path = '/tasks' element = {<Task/>}/>
         <Route exact path = '/login' element = {<Login setUser = {setUser}/>} />
         <Route exact path = '/newtasks' element = {<NewTask />}/> 
-        <Route exact path = '/taskdetails' element = {<TaskDetails />} />
       </Routes>
     </div>
   );

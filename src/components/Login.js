@@ -10,11 +10,12 @@ function login(e){
   e.preventDefault()
   fetch("http://localhost:9292/login",{
     method: 'POST',
-    headers: { 'Content-Type' : 'application/json' },
+    headers: { 'Content-Type' : 'application/json'},
     body: JSON.stringify(user_info)
   })
   .then(response => response.json())
   .then(data => {
+    console.log(data)
     setUser(data)
     localStorage.setItem('user_id', `${data.id}`)
     navigate('/')
@@ -25,11 +26,14 @@ function onchange(e){
 }
 
   return (
-    <div>
-      <form onSubmit={login}>
-        <input type="email" placeholder='Enter your email here....' name='email' onBlur={onchange}/>
-        <input type="password" placeholder='Enter your password...' name='password' onBlur={onchange}/>
-        <button>Login</button>
+    <div >
+      <h4>Login</h4>
+      <form  onSubmit={login}>
+        <label >Email</label> <br />
+        <input type="email" className='login' placeholder='Enter your email here....' name='email' onBlur={onchange}/>
+        <label>Password</label> <br />
+        <input type="password" className='login' placeholder='Enter your password...' name='password' onBlur={onchange}/>
+        <button className='login_button'>Login</button>
       </form>
     </div>
   )

@@ -18,3 +18,74 @@ code {
 .nav-items{
   justify-content: space-between;
 }
+.nav{
+  display: flex;
+  justify-content: space-around;
+  background-color:  #1c2541 ;
+}
+.nav h1{
+  color: blue;
+}
+
+.nav button {
+  justify-content: space-between;
+}
+.card {
+  width: 50%;
+  height: fit-content;
+  display: inline-block;
+  background-color: beige;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-right: 100px;
+}
+body{
+  background-color:  #D5C6E0 ;
+}
+.login{
+  margin-bottom: 50px;
+  width: 600px;
+  align-items: center;
+  height: 50px;
+  display: flex;
+  border-radius: 10px;
+  margin-left: 30%;
+  font-size: xx-large;
+
+  /* background-color: black; */
+}
+div h4 {
+  font-size: 70px;
+  margin-left: 30%;
+}
+.login_button {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  margin-left: 40%;
+  font-size: x-large;
+}
+.new_task input{
+  /* justify-content: space-around; */
+  margin-bottom: 30px;
+  width: 500px;
+  align-items: center;
+  height: 40px;
+  border-radius: 10px;
+  margin-left: 500px;
+}
+.new_task label {
+  margin-left: 500px;
+  font-size: xx-large;
+}
+.new_task input:hover{
+  background-color: lightskyblue;
+  height: 45px;
+}
+.new_task button, label {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: x-large;
+  margin-left: 500px;
+}

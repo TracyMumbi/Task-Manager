@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from 'react'
 
-function Task() {
+function Task({user_id}) {
+  const date = new Date()
+  const id = user_id
+
 
   const [tasks, setTasks] = useState([])
   const [allTasks, setAllTasks] = useState([])
 
 useEffect(() =>{
-  fetch("https://jsonplaceholder.typicode.com/posts")
+  const id = localStorage.getItem('user_id')
+
+  fetch(`http://localhost:9292/user/tasks/${id}/${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`)
   .then(response => response.json())
   .then((tasks) => {
     console.log(tasks)
