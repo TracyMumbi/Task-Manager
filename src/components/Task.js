@@ -5,22 +5,20 @@ function Task({user_id}) {
   const id = user_id
 
 
-  const [tasks, setTasks] = useState([])
   const [allTasks, setAllTasks] = useState([])
 
 useEffect(() =>{
   const id = localStorage.getItem('user_id')
 
-  fetch(`http://localhost:9292/user/tasks/${id}/${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`)
+  fetch(`http://localhost:9292/user/tasks/${id}/${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`)
   .then(response => response.json())
   .then((tasks) => {
-    console.log(tasks)
-    setTasks(tasks)
+    console.log(JSON.parse(tasks))
     setAllTasks(
-    tasks.map((task) => (
+      JSON.parse(tasks).map((task) => (
       <div>
-        <h2>{task.title}</h2>
-        <p>{task.body}</p>
+        <h2>{task.name}</h2>
+        <p>{task.description}</p>
       </div>
     )))
   })

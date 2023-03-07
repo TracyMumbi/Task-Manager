@@ -1,41 +1,58 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 function TaskDetails({user_id}) {
+  const {taskId} = useParams()
+  const [task, setTask] = useState()
 
-  const [tasks, setTasks] = useState([])
-  const [allTasks, setAllTasks] =useState([])
-
-  useEffect(() =>{
-    fetch(`http://localhost:9292/user/tasks/${user_id}`)
+  function handleClick(e) {
+    fetch(`http://localhost:9292/tasks/${taskId}`,{
+      method: 'PATCH',
+      headers:
+        {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        completion_status:  "Completed"
+      })
+    })
     .then(response => response.json())
-    .then((tasks) => {
-      console.log(tasks)
-      setTasks(tasks)
-      setAllTasks(
-      tasks.map((task) => (
+    .then((task) => {
+      setTask(
         <div class="card">
           <div class="card-body">
-            <Link to={{ pathname: `/taskdetails/${task.id}` }}>
               {task.name} <br />
               {task.description} <br />
               {task.completion_status} <br />
               {task.date} <br />
               {task.due_date}
-            </Link>
-            <button>Update</button>
+            <button onClick={handleClick}>Update</button>
           </div>
         </div>
-      )))
+      )
+    })
+  }
+  useEffect(() =>{
+    fetch(`http://localhost:9292/tasks/${taskId}`)
+    .then(response => response.json())
+    .then((task) => {
+      console.log(task)
+      setTask(
+        <div class="card">
+          <div class="card-body">
+              <h1>{task.name} </h1><br />
+              {task.description} <br />
+              {task.completion_status} <br />
+              {task.date} <br />
+              {task.due_date}
+            <button onClick={handleClick}>Update</button>
+          </div>
+        </div>
+      )
     })
   }, [])
-  function onclick(e) {
-    
-  }
 
   return (
     <div>
-      {allTasks}
+      {task}
     </div>
   )
 }
